@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>JspExam</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+<!-- 서블릿 등록 -->
+  <servlet>
+    <servlet-name>hundred-servlet</servlet-name>
+    <servlet-class>servlet.basic.HundredServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>hundred-servlet</servlet-name>
+    <url-pattern>/hundred</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>hundred-adder</servlet-name>
+    <servlet-class>servlet.basic.AdderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>hundred-adder</servlet-name>
+    <url-pattern>/adder</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>bbs-post-servlet</servlet-name>
+    <servlet-class>servlet.basic.BBSPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bbs-post-servlet</servlet-name>
+    <url-pattern>/bbs-post</url-pattern>
+  </servlet-mapping>
+ 
+   <servlet>
+    <servlet-name>personal-info-servlet</servlet-name>
+    <servlet-class>servlet.basic.PersonalInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>personal-info-servlet</servlet-name>
+    <url-pattern>/pinfo-result</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>animal-servlet</servlet-name>
+  	<servlet-class>servlet.session.AnimalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>animal-servlet</servlet-name>
+  	<url-pattern>/servlet/animal</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>result-servlet</servlet-name>
+  	<servlet-class>servlet.session.ResultServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>result-servlet</servlet-name>
+  	<url-pattern>/result</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>new-adder-servlet</servlet-name>
+  	<servlet-class>servlet.exception.NewAdderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>new-adder-servlet</servlet-name>
+  	<url-pattern>/new-adder</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>data-error-servlet</servlet-name>
+  	<servlet-class>servlet.exception.DataErrorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>data-error-servlet</servlet-name>
+  	<url-pattern>/data-error</url-pattern>
+  </servlet-mapping>
+  
+  <!--  
+  <error-page>
+    <exception-type>java.lang.NumberFormatException</exception-type>
+    <location>/exception/NumberFormatError.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.ArithmeticException</exception-type>
+    <location>/exception/ArithmeticError.jsp</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>404</error-code>
+    <location>/exception/NotFoundError.jsp</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>500</error-code>
+    <location>/exception/ServerIntenalError.jsp</location>
+  </error-page>
+  -->
+  
+  <servlet>
+  	<servlet-name>divider-servlet</servlet-name>
+  	<servlet-class>servlet.exception.DividerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>divider-servlet</servlet-name>
+  	<url-pattern>/divider</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>fibonacci-servlet</servlet-name>
+  	<servlet-class>servlet.servletLife.FibonacciServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>fibonacci-servlet</servlet-name>
+  	<url-pattern>/fibonacci</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  	<servlet-name>greeting-servlet</servlet-name>
+  	<servlet-class>servlet.servletLife.GreetingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>greeting-servlet</servlet-name>
+  	<url-pattern>/greeting</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  	<servlet-name>greeting-init-servlet</servlet-name>
+  	<servlet-class>servlet.servletLife.GreetingServletInit</servlet-class>
+  	<init-param>
+  	    <param-name>FILE_NAME</param-name>
+  	    <param-value>c:\\data\\greetingInit.txt</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>greeting-init-servlet</servlet-name>
+  	<url-pattern>/greetingInit</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>pinfo-servlet</servlet-name>
+    <servlet-class>servlet.standard.PersonalInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pinfo-servlet</servlet-name>
+    <url-pattern>/pinfo</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- param 등록 -->
+  <context-param>
+    <param-name>DB_NAME</param-name>
+    <param-value>shoppingMalldb</param-value>
+  </context-param>
+  
+  <jsp-config>
+  <taglib>
+        <taglib-uri>http://localhost/math-function.tld</taglib-uri>
+        <taglib-location>/WEB-INF/tlds/math-functions.tld</taglib-location>
+  </taglib>
+  </jsp-config>
+  
+</web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
